@@ -1,5 +1,10 @@
 public class LinkedList {
     Node head;
+    private int size;
+
+    LinkedList() {
+        this.size = 0;
+    }
 
     public class Node {
         String data;
@@ -9,6 +14,7 @@ public class LinkedList {
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -43,11 +49,46 @@ public class LinkedList {
         currNode.next = newNode;
     }
 
+    //delete first
+    public void deleteFirst() {
+        if (head == null) {
+            return;
+        }
+
+        size--;
+        head = head.next;
+    }
+
+    //delete last
+    public void deleteLast() {
+
+        //checking head
+        if (head == null) {
+            System.out.print("Linked List is empty");
+            return;
+        }
+
+        size--;
+        //checking if list has only one element
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node LastSecondNode = head;
+        Node LastNode = head.next;
+        while (LastNode.next != null) {
+            LastNode = LastNode.next;
+            LastSecondNode = LastSecondNode.next;
+        }
+        LastSecondNode.next = null;
+    }
+
     //printing the linkedlist
     public void printlist() {
         //checking the head
         if (head == null) {
-            System.out.print("NULL");
+            System.out.print("Linked List is empty");
         }
 
         Node currNode = head;
@@ -58,6 +99,11 @@ public class LinkedList {
         System.out.print("NULL");
     }
 
+    //to return size of the linked list
+    public int getSize() {
+        return size;
+    }
+
     public static void main(String[] args) {
         LinkedList l = new LinkedList();
         l.addLast("hi");
@@ -65,5 +111,6 @@ public class LinkedList {
         l.addLast("is");
         l.addLast("jay");
         l.printlist();
+        System.out.println(l.getSize());
     }
 }
