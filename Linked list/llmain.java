@@ -104,12 +104,36 @@ public class llmain {
         return size;
     }
 
+    //to reverse the linkedlist
+    public void reverseList() {
+        
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node prevNode = head;
+        Node currNode = head.next;
+        while (currNode != null) {
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+        head.next = null;
+        head = prevNode;
+    }
+
     public static void main(String[] args) {
         llmain l = new llmain();
         l.addLast("hi");
         l.addLast("this");
         l.addLast("is");
         l.addLast("jay");
+        System.out.println();
+        l.printlist();
+        l.reverseList();
+        System.out.println();
         l.printlist();
         System.out.println(l.getSize());
     }
