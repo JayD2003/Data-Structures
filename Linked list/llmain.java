@@ -1,8 +1,8 @@
-public class LinkedList {
+public class llmain {
     Node head;
     private int size;
 
-    LinkedList() {
+    llmain() {
         this.size = 0;
     }
 
@@ -105,7 +105,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList l = new LinkedList();
+        llmain l = new llmain();
         l.addLast("hi");
         l.addLast("this");
         l.addLast("is");
