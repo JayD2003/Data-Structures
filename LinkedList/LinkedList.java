@@ -1,5 +1,4 @@
 public class LinkedList {
-
     Node head;
 
     public class Node {
@@ -46,10 +45,11 @@ public class LinkedList {
 
     //printing the linkedlist
     public void printlist() {
-
+        //checking the head
         if (head == null) {
             System.out.print("NULL");
         }
+
         Node currNode = head;
         while (currNode != null) {
             System.out.print(currNode.data + "->");
@@ -57,6 +57,7 @@ public class LinkedList {
         }
         System.out.print("NULL");
     }
+
     public static void main(String[] args) {
         LinkedList l = new LinkedList();
         l.addLast("hi");
